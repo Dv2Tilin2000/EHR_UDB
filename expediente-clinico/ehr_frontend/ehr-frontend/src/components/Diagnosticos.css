@@ -1,0 +1,60 @@
+/* Diagnosticos.css */
+.diagnosticos-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.diagnosticos-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.diagnosticos-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.diagnosticos-container ul li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-diagnostico {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.formulario-diagnostico h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.formulario-diagnostico input,
+.formulario-diagnostico textarea,
+.formulario-diagnostico button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario-diagnostico button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario-diagnostico button:hover {
+    background-color: #0056b3;
+}

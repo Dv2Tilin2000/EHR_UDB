@@ -1,0 +1,82 @@
+.pacientes-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.btn-agregar {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.btn-agregar:hover {
+    background-color: #0056b3;
+}
+
+.formulario-paciente {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.formulario-paciente input,
+.formulario-paciente select,
+.formulario-paciente button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario-paciente button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario-paciente button:hover {
+    background-color: #0056b3;
+}
+
+.lista-pacientes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.paciente-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 40px);
+    text-align: center;
+}
+
+.paciente-card h2 {
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.btn-estudio {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-estudio:hover {
+    background-color: #218838;
+}

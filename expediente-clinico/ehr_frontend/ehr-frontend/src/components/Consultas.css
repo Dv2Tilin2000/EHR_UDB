@@ -1,0 +1,60 @@
+/* Consultas.css */
+.consultas-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.consultas-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.consultas-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.consultas-container ul li {
+    background-color: #f9f9f9;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.formulario-consulta {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.formulario-consulta h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.formulario-consulta input,
+.formulario-consulta textarea,
+.formulario-consulta button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.formulario-consulta button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.formulario-consulta button:hover {
+    background-color: #0056b3;
+}
