@@ -50,7 +50,7 @@ const Diagnosticos = () => {
             <ul>
                 {diagnosticos.map(diagnostico => (
                     <li key={diagnostico.id}>
-                        <strong>Código:</strong> {diagnostico.codigo_enfermedad} - <strong>Descripción:</strong> {diagnostico.descripcion}
+                        <strong>Interpretaciones/Hallazgos :</strong> {diagnostico.codigo_enfermedad} - <strong>Indicaciones:</strong> {diagnostico.descripcion}
                     </li>
                 ))}
             </ul>

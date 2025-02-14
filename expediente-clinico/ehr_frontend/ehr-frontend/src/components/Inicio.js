@@ -9,8 +9,7 @@ const Inicio = () => {
             <p>Seleccione una opción para comenzar:</p>
             <div className="opciones">
                 <Link to="/pacientes" className="opcion">Pacientes</Link>
-                <Link to="/consultas" className="opcion">Consultas</Link>
-                <Link to="/estudios" className="opcion">Estudios</Link>
+                 
             </div>
         </div>
     );

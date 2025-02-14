@@ -3,18 +3,32 @@
     font-family: Arial, sans-serif;
 }
 
-.btn-agregar {
+/* Estilo común para todos los botones */
+button,
+.btn-agregar,
+.btn-estudio {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #007bff; /* Fondo azul */
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.btn-agregar:hover {
-    background-color: #0056b3;
+button:hover,
+.btn-agregar:hover,
+.btn-estudio:hover {
+    background-color: #0056b3; /* Fondo azul más oscuro al pasar el ratón */
+}
+
+/* Personalización para los botones de Agregar Consulta y Agregar Estudio */
+.btn-estudio {
+    background-color: #28a745; /* Fondo verde */
+}
+
+.btn-estudio:hover {
+    background-color: #218838; /* Verde más oscuro al pasar el ratón */
 }
 
 .formulario-paciente {
@@ -67,16 +81,24 @@
     color: #007bff;
 }
 
-.btn-estudio {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    display: inline-block;
-    margin-top: 10px;
+/* Barra de navegación */
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #007bff;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
-.btn-estudio:hover {
-    background-color: #218838;
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: #0056b3;
 }

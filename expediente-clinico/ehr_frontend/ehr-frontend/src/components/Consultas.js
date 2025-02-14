@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useParams, Link } from 'react-router-dom'; // Asegúrate de importar Link
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import './Consultas.css';
 
 const Consultas = () => {
     const { id } = useParams(); // ID del paciente
+    const navigate = useNavigate();
     const [consultas, setConsultas] = useState([]);
     const [nuevaConsulta, setNuevaConsulta] = useState({
         fecha: '',
@@ -16,7 +17,7 @@ const Consultas = () => {
     useEffect(() => {
         axios.get(`/pacientes/${id}/consultas`)
             .then(response => {
-                console.log('Consultas recibidas:', response.data); // Verifica los datos recibidos
+                console.log('Consultas recibidas:', response.data);
                 setConsultas(response.data);
             })
             .catch(error => {
@@ -45,13 +46,33 @@ const Consultas = () => {
             });
     };
 
+    // Eliminar paciente
+    const handleDeletePaciente = () => {
+        if (window.confirm('¿Estás seguro de que deseas eliminar este paciente? Esta acción no se puede deshacer.')) {
+            axios.delete(`/pacientes/${id}`)
+                .then(() => {
+                    alert('Paciente eliminado correctamente.');
+                    navigate('/'); // Redirigir a la página principal después de la eliminación
+                })
+                .catch(error => {
+                    console.error('Error eliminando paciente:', error);
+                    alert('Hubo un error al eliminar el paciente.');
+                });
+        }
+    };
+
     return (
         <div className="consultas-container">
             <h1>Consultas del Paciente</h1>
+
+            {/* Botón para eliminar paciente */}
+            <button className="btn-delete" onClick={handleDeletePaciente}>
+                Eliminar Paciente
+            </button>
+
             <ul>
                 {consultas.map(consulta => (
                     <li key={consulta.id}>
-                        {/* Enlace a la página de diagnósticos de la consulta */}
                         <Link to={`/consultas/${consulta.id}/diagnosticos`}>
                             <strong>Fecha:</strong> {consulta.fecha} - <strong>Motivo:</strong> {consulta.motivo}
                         </Link>

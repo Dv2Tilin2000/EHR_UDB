@@ -65,7 +65,7 @@ app.get('/pacientes/:id/consultas', (req, res) => {
     });
 });
 
-//Ruta para agregar nueva consulta
+// Ruta para agregar nueva consulta
 app.post('/consultas', (req, res) => {
     const { paciente_id, fecha, motivo, notas } = req.body;
     const query = 'INSERT INTO Consultas (paciente_id, fecha, motivo, notas) VALUES (?, ?, ?, ?)';
@@ -119,16 +119,48 @@ app.post('/estudios', (req, res) => {
     const query = 'INSERT INTO Estudios (paciente_id, tipo_estudio, resultados, fecha) VALUES (?, ?, ?, ?)';
     connection.query(query, [paciente_id, tipo_estudio, resultados, fecha], (err, results) => {
         if (err) {
-            console.error('Error insertando estudio:', err); // Agrega este console.error
+            console.error('Error insertando estudio:', err);
             return res.status(500).json({ error: err.message });
         }
-        console.log('Estudio insertado:', results); // Agrega este console.log
+        console.log('Estudio insertado:', results);
         res.json({ id: results.insertId, paciente_id, tipo_estudio, resultados, fecha });
     });
 });
+
+// Ruta para eliminar un paciente y sus datos relacionados
+app.delete('/pacientes/:id', (req, res) => {
+    const pacienteId = req.params.id;
+
+    const deleteConsultas = 'DELETE FROM Consultas WHERE paciente_id = ?';
+    const deleteDiagnosticos = 'DELETE FROM Diagnosticos WHERE consulta_id IN (SELECT id FROM Consultas WHERE paciente_id = ?)';
+    const deleteEstudios = 'DELETE FROM Estudios WHERE paciente_id = ?';
+    const deletePaciente = 'DELETE FROM Pacientes WHERE id = ?';
+
+    connection.query(deleteDiagnosticos, [pacienteId], (err) => {
+        if (err) return res.status(500).json({ error: err.message });
+
+        connection.query(deleteConsultas, [pacienteId], (err) => {
+            if (err) return res.status(500).json({ error: err.message });
+
+            connection.query(deleteEstudios, [pacienteId], (err) => {
+                if (err) return res.status(500).json({ error: err.message });
+
+                connection.query(deletePaciente, [pacienteId], (err, results) => {
+                    if (err) return res.status(500).json({ error: err.message });
+
+                    if (results.affectedRows === 0) {
+                        return res.status(404).json({ message: 'Paciente no encontrado' });
+                    }
+
+                    res.json({ message: 'Paciente y sus datos eliminados correctamente' });
+                });
+            });
+        });
+    });
+});
+
 
 // Iniciar el servidor
 app.listen(port, () => {
     console.log(`Servidor corriendo en http://localhost:${port}`);
 });
-
