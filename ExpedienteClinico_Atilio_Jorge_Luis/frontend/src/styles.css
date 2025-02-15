@@ -1,0 +1,136 @@
+/* Estilo general para el cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #daf8e3; /* Fondo suave */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;  /* Cambié el valor de 'center' a 'flex-start' para no centrar el contenido verticalmente */
+    height: 100vh;
+    overflow-y: auto; /* Asegura que puedas desplazarte hacia abajo si el contenido es largo */
+}
+
+/* Contenedor principal */
+.App {
+    text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Titulo */
+h1 {
+    color: #005582; /* Color del título */
+}
+
+h2 {
+    color: #005582; /* Color del título del formulario */
+}
+
+/* Estilo del formulario */
+.form-container {
+    background-color: #97ebdb; /* Fondo suave para el formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Agregué un margen superior para separar el formulario del borde superior */
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;  /* Ajusté el margen superior e inferior */
+}
+
+form {
+    width: 100%;
+}
+
+/* Input general */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #00c2c7; /* Bordes con color complementario */
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="date"], input[type="email"], input[type="datetime-local"] {
+    width: auto;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 2px solid #00c2c7;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Botón de envío */
+button {
+    background-color: #0086ad; /* Botón con color más fuerte */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+/* Hover sobre el botón */
+button:hover {
+    background-color: #005582;
+}
+
+/* Tabla de pacientes */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    overflow-x: auto; /* Hacer que la tabla sea desplazable si es muy ancha */
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #00c2c7; /* Bordes de las celdas */
+}
+
+th {
+    background-color: #0086ad;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #97ebdb; /* Fila alternada con color suave */
+}
+
+tr:hover {
+    background-color: #00c2c7; /* Resaltar al pasar el ratón */
+}
+
+/* Contenedor para los botones en la tabla */
+.table-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 15px;
+    }
+
+    input, select, button {
+        width: 100%;
+    }
+
+    table {
+        font-size: 14px;
+    }
+}
